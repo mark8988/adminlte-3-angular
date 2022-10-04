@@ -23,8 +23,20 @@
                         "polyfills": "src/polyfills.ts",
                         "tsConfig": "tsconfig.app.json",
                         "assets": ["src/favicon.ico", "src/assets"],
-                        "styles": ["src/styles.scss"],
-                        "scripts": [],
+                        "styles": [
+                            "src/styles.scss",
+                            "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
+                        ],
+                        "scripts": [
+                            "node_modules/jquery/dist/jquery.min.js",
+                            "node_modules/datatables.net/js/jquery.dataTables.min.js",
+                            "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js",
+                            "node_modules/datatables.net-buttons/js/dataTables.buttons.js",
+                            "node_modules/datatables.net-buttons/js/buttons.colVis.js",
+                            "node_modules/datatables.net-buttons/js/buttons.flash.js",
+                            "node_modules/datatables.net-buttons/js/buttons.html5.js",
+                            "node_modules/datatables.net-buttons/js/buttons.print.js"
+                        ],
                         "vendorChunk": true,
                         "extractLicenses": false,
                         "buildOptimizer": false,
@@ -120,8 +132,6 @@
     },
     "cli": {
         "analytics": "43a7ce40-5fb9-4a0d-8b40-b48fc0426e9d",
-        "schematicCollections": [
-          "@angular-eslint/schematics"
-        ]
+        "schematicCollections": ["@angular-eslint/schematics"]
     }
 }

@@ -19,6 +19,9 @@ import {ToastrModule} from 'ngx-toastr';
 import {MessagesComponent} from '@modules/main/header/messages/messages.component';
 import {NotificationsComponent} from '@modules/main/header/notifications/notifications.component';
 
+import {DataTablesModule} from 'angular-datatables';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbdModalConfigModule} from '@modules/dialog/modal-config.module';
 import {registerLocaleData} from '@angular/common';
 import localeEn from '@angular/common/locales/en';
 import {UserComponent} from '@modules/main/header/user/user.component';
@@ -34,7 +37,15 @@ import {authReducer} from './store/auth/reducer';
 import {uiReducer} from './store/ui/reducer';
 import {ProfabricComponentsModule} from '@profabric/angular-components';
 import {defineCustomElements} from '@profabric/web-components/loader';
-import { SidebarSearchComponent } from './components/sidebar-search/sidebar-search.component';
+import {SidebarSearchComponent} from './components/sidebar-search/sidebar-search.component';
+import {GoodsManageComponent} from './pages/goods-manage/goods-manage.component';
+import {JobManageComponent} from './pages/job-manage/job-manage.component';
+import {WorkItemManageComponent} from './pages/work-item-manage/work-item-manage.component';
+import {GoodsAddComponent} from './pages/goods-manage/goods-add/goods-add.component';
+import {GoodsEditComponent} from './pages/goods-manage/goods-edit/goods-edit.component';
+import {GoodsTypeManageComponent} from './pages/goods-type-manage/goods-type-manage.component';
+import {GoodsTypeAddComponent} from './pages/goods-type-manage/goods-type-add/goods-type-add.component';
+import {GoodsTypeEditComponent} from './pages/goods-type-manage/goods-type-edit/goods-type-edit.component';
 
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
@@ -61,7 +72,15 @@ registerLocaleData(localeEn, 'en-EN');
         SubMenuComponent,
         MenuItemComponent,
         ControlSidebarComponent,
-        SidebarSearchComponent
+        SidebarSearchComponent,
+        GoodsManageComponent,
+        GoodsTypeManageComponent,
+        JobManageComponent,
+        WorkItemManageComponent,
+        GoodsAddComponent,
+        GoodsEditComponent,
+        GoodsTypeAddComponent,
+        GoodsTypeEditComponent
     ],
     imports: [
         BrowserModule,
@@ -70,12 +89,15 @@ registerLocaleData(localeEn, 'en-EN');
         AppRoutingModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
+        DataTablesModule,
         ToastrModule.forRoot({
             timeOut: 3000,
             positionClass: 'toast-top-right',
             preventDuplicates: true
         }),
-        ProfabricComponentsModule
+        ProfabricComponentsModule,
+        NgbModule,
+        NgbdModalConfigModule
     ],
     providers: [],
     bootstrap: [AppComponent]

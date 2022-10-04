@@ -3,6 +3,7 @@ import {UiState} from '@/store/ui/state';
 import {Component, HostBinding, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {AppService} from '@services/app.service';
+import {ApiService} from '@services/api.service';
 import {Observable} from 'rxjs';
 
 const BASE_CLASSES = 'main-sidebar elevation-4';
@@ -15,19 +16,25 @@ export class MenuSidebarComponent implements OnInit {
     @HostBinding('class') classes: string = BASE_CLASSES;
     public ui: Observable<UiState>;
     public user;
-    public menu = MENU;
+    public menu;
 
     constructor(
         public appService: AppService,
+        public apiService: ApiService,
         private store: Store<AppState>
     ) {}
 
-    ngOnInit() {
+    async ngOnInit() {
         this.ui = this.store.select('ui');
         this.ui.subscribe((state: UiState) => {
             this.classes = `${BASE_CLASSES} ${state.sidebarSkin}`;
         });
         this.user = this.appService.user;
+
+        (await this.apiService.getMenu(1)).subscribe((res) => {
+            //console.log(res); //可以打開console看看資料室什麼
+            this.menu = res;
+        });
     }
 }
 
@@ -44,7 +51,7 @@ export const MENU = [
     },
     {
         name: 'Main Menu',
-        iconClasses: 'fas fa-folder',        
+        iconClasses: 'fas fa-folder',
         children: [
             {
                 name: 'Sub Menu',

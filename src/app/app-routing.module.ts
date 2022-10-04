@@ -12,6 +12,10 @@ import {ForgotPasswordComponent} from '@modules/forgot-password/forgot-password.
 import {RecoverPasswordComponent} from '@modules/recover-password/recover-password.component';
 import {MainMenuComponent} from '@pages/main-menu/main-menu.component';
 import {SubMenuComponent} from '@pages/main-menu/sub-menu/sub-menu.component';
+import {GoodsManageComponent} from '@pages/goods-manage/goods-manage.component';
+import {GoodsTypeManageComponent} from '@pages/goods-type-manage/goods-type-manage.component';
+import {JobManageComponent} from '@pages/job-manage/job-manage.component';
+import {WorkItemManageComponent} from '@pages/work-item-manage/work-item-manage.component';
 
 const routes: Routes = [
     {
@@ -39,6 +43,22 @@ const routes: Routes = [
             {
                 path: '',
                 component: DashboardComponent
+            },
+            {
+                path: 'GoodsManage',
+                component: GoodsManageComponent
+            },
+            {
+                path: 'GoodsTypeManage',
+                component: GoodsTypeManageComponent
+            },
+            {
+                path: 'JobManage',
+                component: JobManageComponent
+            },
+            {
+                path: 'WorkItemManage',
+                component: WorkItemManageComponent
             }
         ]
     },
