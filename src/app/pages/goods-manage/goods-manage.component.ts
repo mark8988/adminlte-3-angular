@@ -18,10 +18,12 @@ import {GoodsEditComponent} from './goods-edit/goods-edit.component';
     providers: [NgbModalConfig, NgbModal]
 })
 export class GoodsManageComponent implements OnInit {
-    dtOptions: DataTables.Settings = {
+    dtOptions: any = {
         pagingType: 'full_numbers',
         pageLength: 10,
-        stateSave: true
+        stateSave: true,
+        dom: 'Bfrtip',
+        buttons: ['columnsToggle', 'colvis', 'copy', 'print', 'excel']
     };
     public goods;
     public goodTypes;
@@ -44,34 +46,30 @@ export class GoodsManageComponent implements OnInit {
         config.backdrop = true;
         config.keyboard = false;
         config.centered = true;
+        config.size = 'xxl';
     }
 
     ngOnInit(): void {
         this.reloadData();
 
         this.apiService.getGoodTypes().subscribe((res) => {
-            console.log(res); //可以打開console看看資料室什麼
             this.goodTypes = res as any;
         });
     }
 
     async reloadData() {
         (await this.apiService.getGoods(0)).subscribe((res) => {
-            //console.log(res); //可以打開console看看資料室什麼
             this.goods = res as any;
-            // Calling the DT trigger to manually render the table
             this.dtTrigger.next(null);
         });
     }
 
     async refreshData() {
-        //console.log(this.selectGoodTypes.nativeElement.value);
         (
             await this.apiService.getGoods(
                 this.selectGoodTypes.nativeElement.value
             )
         ).subscribe((res) => {
-            //console.log(res); //可以打開console看看資料室什麼
             this.goods = res as any;
             this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
                 dtInstance.destroy();

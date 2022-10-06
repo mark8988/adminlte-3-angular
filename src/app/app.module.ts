@@ -39,13 +39,15 @@ import {ProfabricComponentsModule} from '@profabric/angular-components';
 import {defineCustomElements} from '@profabric/web-components/loader';
 import {SidebarSearchComponent} from './components/sidebar-search/sidebar-search.component';
 import {GoodsManageComponent} from './pages/goods-manage/goods-manage.component';
-import {JobManageComponent} from './pages/job-manage/job-manage.component';
-import {WorkItemManageComponent} from './pages/work-item-manage/work-item-manage.component';
 import {GoodsAddComponent} from './pages/goods-manage/goods-add/goods-add.component';
 import {GoodsEditComponent} from './pages/goods-manage/goods-edit/goods-edit.component';
 import {GoodsTypeManageComponent} from './pages/goods-type-manage/goods-type-manage.component';
 import {GoodsTypeAddComponent} from './pages/goods-type-manage/goods-type-add/goods-type-add.component';
 import {GoodsTypeEditComponent} from './pages/goods-type-manage/goods-type-edit/goods-type-edit.component';
+import {JobManageComponent} from './pages/job-manage/job-manage.component';
+import {JobAddComponent} from './pages/job-manage/job-add/job-add.component';
+import {JobEditComponent} from './pages/job-manage/job-edit/job-edit.component';
+import {WorkItemManageComponent} from './pages/work-item-manage/work-item-manage.component';
 
 defineCustomElements();
 registerLocaleData(localeEn, 'en-EN');
@@ -80,7 +82,10 @@ registerLocaleData(localeEn, 'en-EN');
         GoodsAddComponent,
         GoodsEditComponent,
         GoodsTypeAddComponent,
-        GoodsTypeEditComponent
+        GoodsTypeEditComponent,
+        JobAddComponent,
+        JobEditComponent,
+        WorkItemManageComponent
     ],
     imports: [
         BrowserModule,
